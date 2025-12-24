@@ -2,6 +2,20 @@
 
 Complete prompt sequence for building an automated trading bot from video analysis.
 
+## 📁 Repository Structure
+```
+bot_development/               # Trading bot development
+├── README.md
+│── trading_bot_master_prompt.md
+│── trading_bot_01_video_analysis.md
+│── trading_bot_02_system_documentation.md
+│── trading_bot_03_technical_architecture.md
+│── trading_bot_04_implementation.md
+│── trading_bot_05_testing_deployment.md
+│── outputs/                   # Example outputs (optional)
+└── .gitkeep
+```
+
 ## Workflow Overview
 ```mermaid
 graph LR

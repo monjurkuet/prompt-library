@@ -1,0 +1,33 @@
+prompts:
+  - id: trading_bot_master
+    title: "Trading Bot Development Master Prompt"
+    path: "trading/bot_development/trading_bot_master_prompt.md"
+    category: "trading"
+    subcategory: "bot_development"
+    tags:
+      - trading
+      - automation
+      - multimodal
+      - bitcoin
+    models:
+      - gemini-1.5-pro
+    complexity: advanced
+    version: "1.0"
+    created: "2024-12-24"
+    
+  - id: trading_bot_video_analysis
+    title: "Trading Bot Video Analysis"
+    path: "trading/bot_development/trading_bot_01_video_analysis.md"
+    category: "trading"
+    subcategory: "bot_development"
+    dependencies:
+      - trading_bot_master
+    tags:
+      - video-analysis
+      - multimodal
+      - extraction
+    models:
+      - gemini-1.5-pro
+    complexity: intermediate
+    version: "1.0"
+    created: "2024-12-24"

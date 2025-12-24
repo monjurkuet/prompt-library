@@ -1,5 +1,42 @@
-# Repository Structure
+# Prompt Library
 
+A curated collection of reusable AI prompts, templates and examples organized by category to help you build, test and deploy prompt-powered projects.
+
+## Table of contents
+
+- [About](#about)
+- [Quick start](#quick-start)
+- [Browse the library](#browse-the-library)
+- [Repository structure](#repository-structure)
+- [Contributing](#contributing)
+- [License](#license)
+
+## About
+
+This repository groups prompts, templates and metadata into clear categories so you can find and reuse them in your projects. Each category has a short README explaining purpose and usage.
+
+## Quick start
+
+1. Browse the `templates/` folder for reusable prompt scaffolds.
+2. Explore categories such as `trading/`, `development/`, and `content/` to find specialized prompts.
+3. Use `metadata/prompt_index.yaml` to search or filter prompts by tag.
+
+## Browse the library
+
+- templates/: Reusable templates and project-level prompts.
+- trading/: Trading-related prompts (bot development, backtesting, market analysis).
+- development/: Prompts for software engineering workflows (code generation, review, debugging).
+- content/: Prompts for writing, marketing and social media.
+- analysis/: Data processing and visualization prompts.
+- utilities/: Formatting, translation and other utility prompts.
+- metadata/: Indexes, tags and changelog.
+
+## Repository structure
+
+<details>
+<summary>Expand to view full structure</summary>
+
+```text
 prompt-library/
 │
 ├── README.md                          # Repository overview, how to use prompts
@@ -57,3 +94,22 @@ prompt-library/
     ├── prompt_index.yaml              # Searchable index
     ├── tags.yaml                      # Tag definitions
     └── changelog.md                   # Version history
+```
+
+</details>
+
+## Contributing
+
+Contributions are welcome — please see `CONTRIBUTING.md` for guidelines. When adding prompts:
+
+- Add a short README for the category if one does not exist.
+- Include metadata (tags, description) so the prompt can be indexed.
+- Add example outputs where helpful in an `outputs/` folder.
+
+## License
+
+The repository-level license is in the `LICENSE` file. Prompts can be licensed individually; we recommend a permissive license such as CC BY 4.0 or MIT for code-related prompt content.
+
+---
+
+If you'd like, I can further tweak styles (badges, images) or add a visual index page for the website. Please tell me which improvements you want next.

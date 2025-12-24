@@ -1,7 +1,7 @@
 prompts:
   - id: trading_bot_master
-    title: "Trading Bot Development Master Prompt"
-    path: "trading/bot_development/trading_bot_master_prompt.md"
+    title: "TRADING BOT DEVELOPMENT: MASTER PROJECT PROMPT"
+    path: "trading/bot_development/00_master_prompt_trading_bot_development.md"
     category: "trading"
     subcategory: "bot_development"
     tags:
@@ -10,10 +10,8 @@ prompts:
       - multimodal
       - bitcoin
     models:
-      - gemini-1.5-pro
+      - gemini-3-pro
     complexity: advanced
-    version: "1.0"
-    created: "2024-12-24"
     
   - id: trading_bot_video_analysis
     title: "Trading Bot Video Analysis"
@@ -29,5 +27,3 @@ prompts:
     models:
       - gemini-1.5-pro
     complexity: intermediate
-    version: "1.0"
-    created: "2024-12-24"

@@ -104,9 +104,7 @@ prompt-library/
 [What the user needs to provide]
 
 ## Prompt
-```
 [THE ACTUAL PROMPT GOES HERE]
-```
 
 ## Expected Output
 [Description of what the AI should produce]

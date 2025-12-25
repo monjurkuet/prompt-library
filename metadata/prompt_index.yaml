@@ -13,17 +13,17 @@ prompts:
       - gemini-3-pro
     complexity: advanced
     
-  - id: trading_bot_video_analysis
-    title: "Trading Bot Video Analysis"
-    path: "trading/bot_development/trading_bot_01_video_analysis.md"
-    category: "trading"
-    subcategory: "bot_development"
-    dependencies:
-      - trading_bot_master
+  - title: Precision Document Parser for Structured Data Extraction
+    category: analysis
+    subcategory: data_processing
+    filename: document_parser_rag_extraction.md
     tags:
-      - video-analysis
-      - multimodal
-      - extraction
-    models:
-      - gemini-1.5-pro
-    complexity: intermediate
+      - document-extraction
+      - rag
+      - ml-training
+      - structured-data
+      - markdown
+      - zero-hallucination
+    complexity: advanced
+    version: "1.0"
+    last_updated: "2025-12-25"

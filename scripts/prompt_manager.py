@@ -2,6 +2,7 @@ import os
 import re
 import yaml
 from datetime import datetime
+import argparse  # Added argparse
 
 # --- Configuration ---
 PROMPT_DIRS = ["analysis", "trading"]  # Directories to scan for prompts
@@ -197,6 +198,10 @@ def generate_prompt_index():
                             # We still append to all_prompts_metadata so check_unique_ids can report on it,
                             # but we will fail the overall_validity.
                             pass  # Individual errors are printed in validate_front_matter
+                    else:
+                        print(
+                            f"Warning: No YAML front matter found in {file_path_rel}. Skipping."
+                        )
 
     overall_valid = True  # Initialize overall validity flag
 
@@ -231,7 +236,167 @@ def generate_prompt_index():
         print(f"Error writing prompt index file: {e}")
 
 
+def create_new_prompt(args):
+    """
+    Guides the user through creating a new prompt file with YAML front matter.
+    """
+    print("\n--- Creating New Prompt ---")
+
+    # 1. Gather metadata interactively
+    # Required fields first
+    prompt_metadata = {}
+    prompt_metadata["id"] = input(
+        "Enter unique ID for the prompt (e.g., 'my-new-prompt'): "
+    ).strip()
+    while not prompt_metadata["id"]:
+        prompt_metadata["id"] = input("ID cannot be empty. Enter unique ID: ").strip()
+
+    prompt_metadata["title"] = input("Enter title for the prompt: ").strip()
+    while not prompt_metadata["title"]:
+        prompt_metadata["title"] = input("Title cannot be empty. Enter title: ").strip()
+
+    prompt_metadata["description"] = input("Enter a brief description: ").strip()
+    while not prompt_metadata["description"]:
+        prompt_metadata["description"] = input(
+            "Description cannot be empty. Enter description: "
+        ).strip()
+
+    # Category and sub_category - suggest from PROMPT_DIRS or existing structure
+    print(f"\nAvailable primary categories: {', '.join(PROMPT_DIRS)}")
+    prompt_metadata["category"] = input(
+        "Enter primary category (e.g., 'analysis', 'trading'): "
+    ).strip()
+    while not prompt_metadata["category"]:
+        prompt_metadata["category"] = input(
+            "Category cannot be empty. Enter primary category: "
+        ).strip()
+
+    prompt_metadata["sub_category"] = input(
+        "Enter sub-category (optional, e.g., 'data_processing', 'bot_development'). Leave blank if none: "
+    ).strip()
+
+    # Other required fields with sensible defaults or interactive input
+    prompt_metadata["tags"] = [
+        tag.strip()
+        for tag in input("Enter tags (comma-separated, e.g., 'RAG, NLP'): ").split(",")
+        if tag.strip()
+    ]
+    prompt_metadata["version"] = (
+        input("Enter version (e.g., '1.0.0', default '1.0.0'): ") or "1.0.0"
+    )
+    prompt_metadata["status"] = (
+        input(
+            "Enter status (e.g., 'active', 'draft', 'deprecated', default 'active'): "
+        )
+        or "active"
+    )
+    prompt_metadata["llm_model_compatibility"] = [
+        model.strip()
+        for model in input(
+            "Enter compatible LLM models (comma-separated, e.g., 'gpt-4o, claude-3-opus', default 'any'): "
+        ).split(",")
+        if model.strip()
+    ] or ["any"]
+
+    # Optional fields like parameters, plan_task, plan_steps
+    if input("Does this prompt require parameters? (y/N): ").lower() == "y":
+        prompt_metadata["parameters"] = []
+        while True:
+            param_name = input(
+                "  Enter parameter name (leave blank to finish): "
+            ).strip()
+            if not param_name:
+                break
+            param_type = (
+                input(
+                    f"    Enter type for '{param_name}' (e.g., 'string', 'integer', default 'string'): "
+                )
+                or "string"
+            )
+            param_desc = input(f"    Enter description for '{param_name}': ").strip()
+            prompt_metadata["parameters"].append(
+                {"name": param_name, "type": param_type, "description": param_desc}
+            )
+
+    if input("Is this a multi-step plan prompt? (y/N): ").lower() == "y":
+        prompt_metadata["plan_task"] = input("  Enter overall plan task: ").strip()
+        prompt_metadata["plan_steps"] = []
+        while True:
+            step_title = input(
+                "  Enter plan step title (leave blank to finish): "
+            ).strip()
+            if not step_title:
+                break
+            step_details = input(f"    Enter details for '{step_title}': ").strip()
+            step_agent = input(
+                f"    Enter agent name for '{step_title}' (optional): "
+            ).strip()
+            step_data = {"title": step_title, "details": step_details}
+            if step_agent:
+                step_data["agent_name"] = step_agent
+            prompt_metadata["plan_steps"].append(step_data)
+
+    # 2. Construct file path
+    file_name = f"{prompt_metadata['id']}.md"
+    target_dir = os.path.join(
+        PROJECT_ROOT,
+        prompt_metadata["category"],
+        prompt_metadata["sub_category"] if prompt_metadata["sub_category"] else "",
+    )
+    # Clean up empty strings or None from path components
+    target_dir_parts = [p for p in target_dir.split(os.sep) if p]
+    target_dir = os.path.join(*target_dir_parts)
+
+    target_file_path = os.path.join(target_dir, file_name)
+
+    # Check for existing file
+    if os.path.exists(target_file_path):
+        print(f"Error: A prompt file already exists at {target_file_path}. Aborting.")
+        return
+
+    # 3. Generate content
+    # Simple initial Markdown content
+    markdown_content = f"# {prompt_metadata['title']}\n\n"
+    markdown_content += f"## Purpose\n{prompt_metadata['description']}\n\n"
+    markdown_content += "## Prompt\n\n[Your prompt content goes here]\n"
+
+    full_content = f"---\n{yaml.dump(prompt_metadata, sort_keys=False, indent=2, default_flow_style=False)}---\n{markdown_content}"
+
+    # 4. Write to file
+    try:
+        os.makedirs(target_dir, exist_ok=True)
+        with open(target_file_path, "w", encoding="utf-8") as f:
+            f.write(full_content)
+        print(f"\nSuccessfully created new prompt at: {target_file_path}")
+        print(
+            "Remember to add your main prompt content and then run 'uv run python scripts/prompt_manager.py index' to update the master index."
+        )
+    except Exception as e:
+        print(f"Error creating prompt file: {e}")
+
+
 # --- Main Execution ---
 if __name__ == "__main__":
-    print("Generating prompt index...")
-    generate_prompt_index()
+    parser = argparse.ArgumentParser(description="Manage your prompt library.")
+    subparsers = parser.add_subparsers(dest="command", help="Available commands")
+
+    # Index command
+    index_parser = subparsers.add_parser(
+        "index", help="Generate/update the prompt index."
+    )
+
+    # New prompt command
+    new_prompt_parser = subparsers.add_parser(
+        "new-prompt", help="Create a new prompt file."
+    )
+    # Add arguments for new-prompt if we want non-interactive mode later
+
+    args = parser.parse_args()
+
+    if args.command == "index":
+        print("Generating prompt index...")
+        generate_prompt_index()
+    elif args.command == "new-prompt":
+        create_new_prompt(args)
+    else:
+        parser.print_help()

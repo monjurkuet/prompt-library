@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-30T02:50:15.282454'
+  last_modified: '2025-12-30T04:14:22.314025'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-30T02:50:15.295411'
+  last_modified: '2025-12-30T04:14:22.327443'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,5 +110,28 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-30T02:50:15.300628'
+  last_modified: '2025-12-30T04:14:22.333145'
   file_path: trading/document_analysis/trading_strategy_extractor.md
+- id: perfect-prompt-engineer
+  title: Perfect Prompt Engineer
+  description: An expert AI prompt engineer that designs and forms high-quality, research-backed
+    LLM prompts based on user requirements.
+  category: utilities
+  sub_category: prompt_engineering
+  tags:
+  - prompt-engineering
+  - meta-prompt
+  - best-practices
+  - research
+  - LLM-design
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: user_request_description
+    type: string
+    description: A detailed description of the prompt the user wants to create, including
+      goal, input, output, constraints, and context.
+  last_modified: '2025-12-30T04:14:22.336449'
+  file_path: utilities/prompt_engineering/perfect-prompt-engineer.md

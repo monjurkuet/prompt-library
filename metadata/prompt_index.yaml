@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-30T02:26:02.225157'
+  last_modified: '2025-12-30T02:50:15.282454'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-30T02:26:02.237743'
+  last_modified: '2025-12-30T02:50:15.295411'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,5 +110,5 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-30T02:26:02.242773'
+  last_modified: '2025-12-30T02:50:15.300628'
   file_path: trading/document_analysis/trading_strategy_extractor.md

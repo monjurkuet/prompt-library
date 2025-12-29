@@ -41,37 +41,117 @@ def extract_front_matter(md_content):
         return None, md_content
 
 
-def validate_front_matter(metadata, file_path):
+def validate_front_matter(metadata, file_path_rel):
     """
-    Validates the extracted front matter for required fields.
+    Validates the extracted front matter for required fields and consistency.
     Returns True if valid, False otherwise.
     """
     is_valid = True
     for field in REQUIRED_FIELDS:
         if field not in metadata:
-            print(f"Warning: '{field}' missing in {file_path}")
+            print(f"Warning: '{field}' missing in {file_path_rel}")
             is_valid = False
 
     if not isinstance(metadata.get("tags"), list):
-        print(f"Warning: 'tags' field in {file_path} should be a list.")
+        print(f"Warning: 'tags' field in {file_path_rel} should be a list.")
         is_valid = False
     if not isinstance(metadata.get("llm_model_compatibility"), list):
         print(
-            f"Warning: 'llm_model_compatibility' field in {file_path} should be a list."
+            f"Warning: 'llm_model_compatibility' field in {file_path_rel} should be a list."
         )
         is_valid = False
     if "parameters" in metadata and not isinstance(metadata["parameters"], list):
         print(
-            f"Warning: 'parameters' field in {file_path} should be a list of dictionaries."
+            f"Warning: 'parameters' field in {file_path_rel} should be a list of dictionaries."
         )
         is_valid = False
     if "plan_steps" in metadata and not isinstance(metadata["plan_steps"], list):
         print(
-            f"Warning: 'plan_steps' field in {file_path} should be a list of dictionaries."
+            f"Warning: 'plan_steps' field in {file_path_rel} should be a list of dictionaries."
         )
         is_valid = False
 
+    # New check for path-category consistency
+    if not check_path_category_consistency(metadata, file_path_rel):
+        is_valid = False
+
     return is_valid
+
+
+def check_path_category_consistency(metadata, file_path_rel):
+    """
+    Checks if metadata 'category' and 'sub_category' align with the file path.
+    Returns True if consistent, False otherwise.
+    """
+    is_consistent = True
+    path_parts = file_path_rel.split(os.sep)
+
+    # file_path_rel is like 'category/sub_category/file.md'
+    # so path_parts[0] should be category, path_parts[1] should be sub_category
+
+    # Check primary category
+    if len(path_parts) > 0 and path_parts[0] != metadata.get("category"):
+        print(
+            f"Error: Category '{metadata.get('category')}' in metadata does not match "
+            f"first path part '{path_parts[0]}' for {file_path_rel}"
+        )
+        is_consistent = False
+
+    # Check sub_category if present in metadata and path
+    if "sub_category" in metadata:
+        if len(path_parts) > 1 and path_parts[1] != metadata["sub_category"]:
+            print(
+                f"Error: Sub-category '{metadata['sub_category']}' in metadata does not match "
+                f"second path part '{path_parts[1]}' for {file_path_rel}"
+            )
+            is_consistent = False
+        # If sub_category is in metadata but no sub_dir in path (e.g., 'category/file.md')
+        elif len(path_parts) <= 1 or (
+            len(path_parts) > 1 and path_parts[1].endswith(".md")
+        ):
+            print(
+                f"Error: Sub-category '{metadata['sub_category']}' in metadata found, "
+                f"but no corresponding sub-directory in path for {file_path_rel}"
+            )
+            is_consistent = False
+    # If sub_directory is in path but no sub_category in metadata (and it's not a root file like README)
+    elif len(path_parts) > 1 and not path_parts[1].endswith(".md"):
+        print(
+            f"Error: Sub-directory '{path_parts[1]}' found in path, but no 'sub_category' "
+            f"in metadata for {file_path_rel}. Consider adding 'sub_category'."
+        )
+        is_consistent = False  # This is now a hard failure for consistency
+
+    return is_consistent
+
+
+def check_unique_ids(all_prompts_metadata):
+    """
+    Checks for unique 'id' values across all collected prompt metadata.
+    Returns True if all IDs are unique, False otherwise.
+    """
+    ids = {}
+    is_unique = True
+    for meta in all_prompts_metadata:
+        prompt_id = meta.get("id")
+        file_path = meta.get("file_path", "unknown_file")
+        if prompt_id:
+            if prompt_id in ids:
+                print(
+                    f"Error: Duplicate ID '{prompt_id}' found. "
+                    f"First instance in {ids[prompt_id]}, duplicate in {file_path}"
+                )
+                is_unique = False
+            else:
+                ids[prompt_id] = file_path
+        else:
+            # This case is already covered by REQUIRED_FIELDS check, but good to note.
+            print(
+                f"Error: Prompt in {file_path} is missing an 'id'. Cannot check for uniqueness."
+            )
+            is_unique = False  # If ID is missing, it's not uniquely identifiable
+
+    return is_unique
 
 
 def generate_prompt_index():
@@ -113,11 +193,25 @@ def generate_prompt_index():
                         if validate_front_matter(metadata, file_path_rel):
                             all_prompts_metadata.append(metadata)
                         else:
-                            print(f"Skipping invalid prompt: {file_path_rel}")
-                    else:
-                        print(
-                            f"Warning: No YAML front matter found in {file_path_rel}. Skipping."
-                        )
+                            # If validate_front_matter returns False, it means there was a critical error for that prompt
+                            # We still append to all_prompts_metadata so check_unique_ids can report on it,
+                            # but we will fail the overall_validity.
+                            pass  # Individual errors are printed in validate_front_matter
+
+    overall_valid = True  # Initialize overall validity flag
+
+    # After collecting all metadata, perform cross-cutting validations
+    if not check_unique_ids(all_prompts_metadata):
+        overall_valid = False
+
+    # if other cross-cutting validations were added, they would go here
+    # e.g., if not check_semantic_versioning(all_prompts_metadata): overall_valid = False
+
+    if not overall_valid:
+        print(
+            "Error: Prompt index generation halted due to critical validation errors."
+        )
+        return  # Do not write the index if critical errors exist
 
     # Write the aggregated metadata to prompt_index.yaml
     index_file_path = os.path.join(PROJECT_ROOT, PROMPT_INDEX_FILE)

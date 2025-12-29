@@ -1,15 +1,25 @@
-# Precision Document Parser for Structured Data Extraction
-
-## Metadata
-- **Category:** Analysis > Data Processing
-- **Complexity:** Advanced
-- **Estimated Time:** 1–45 minutes (depending on document length)
-- **Dependencies:** None
-- **Version:** 1.0
-- **Last Updated:** 2025-12-25
-- **Tags:** #document-extraction #rag #ml-training #structured-data #markdown #zero-hallucination
-
 ---
+id: "document-parser-rag-extraction"
+title: "Precision Document Parser for Structured Data Extraction"
+description: "Extracts all content from attached documents into Structured Semantic Markdown optimized for ML training datasets and RAG vector databases."
+category: "analysis"
+sub_category: "data_processing"
+tags: ["document-extraction", "rag", "ml-training", "structured-data", "markdown", "zero-hallucination"]
+version: "1.0"
+status: "active"
+llm_model_compatibility: ["gpt-4o", "claude-3-opus"]
+parameters:
+  - name: "document"
+    type: "string"
+    description: "The document (PDF, image, or text file) to be extracted."
+  - name: "intended_use"
+    type: "string"
+    description: "Intended use (ML training, RAG database, etc.)"
+  - name: "formatting_preferences"
+    type: "string"
+    description: "Any specific formatting preferences."
+---
+# Precision Document Parser for Structured Data Extraction
 
 ## Purpose
 Extract all content from attached documents into **Structured Semantic Markdown** optimized for:
@@ -154,7 +164,7 @@ PAGE_META:
   extraction_confidence: [HIGH | MEDIUM | LOW]
   confidence_reason: [Explanation]
 -->
-````
+```
 
 At the end of each semantic section:
 

@@ -1,29 +1,93 @@
-prompts:
-  - id: trading_bot_master
-    title: "TRADING BOT DEVELOPMENT: MASTER PROJECT PROMPT"
-    path: "trading/bot_development/00_master_prompt_trading_bot_development.md"
-    category: "trading"
-    subcategory: "bot_development"
-    tags:
-      - trading
-      - automation
-      - multimodal
-      - bitcoin
-    models:
-      - gemini-3-pro
-    complexity: advanced
-    
-  - title: Precision Document Parser for Structured Data Extraction
-    category: analysis
-    subcategory: data_processing
-    filename: document_parser_rag_extraction.md
-    tags:
-      - document-extraction
-      - rag
-      - ml-training
-      - structured-data
-      - markdown
-      - zero-hallucination
-    complexity: advanced
-    version: "1.0"
-    last_updated: "2025-12-25"
+- id: document-parser-rag-extraction
+  title: Precision Document Parser for Structured Data Extraction
+  description: Extracts all content from attached documents into Structured Semantic
+    Markdown optimized for ML training datasets and RAG vector databases.
+  category: analysis
+  sub_category: data_processing
+  tags:
+  - document-extraction
+  - rag
+  - ml-training
+  - structured-data
+  - markdown
+  - zero-hallucination
+  version: '1.0'
+  status: active
+  llm_model_compatibility:
+  - gpt-4o
+  - claude-3-opus
+  parameters:
+  - name: document
+    type: string
+    description: The document (PDF, image, or text file) to be extracted.
+  - name: intended_use
+    type: string
+    description: Intended use (ML training, RAG database, etc.)
+  - name: formatting_preferences
+    type: string
+    description: Any specific formatting preferences.
+  last_modified: '2025-12-30T02:22:33.222797'
+  file_path: analysis/data_processing/document_parser_rag_extraction.md
+- id: trading-bot-master-plan
+  title: Master Project Prompt for Trading Bot Development
+  description: Guides the complete development lifecycle of an automated trading bot
+    based on a video demonstration of a trading methodology.
+  category: trading
+  sub_category: bot_development
+  tags:
+  - trading
+  - bot
+  - project-management
+  - multi-phase
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - gpt-4o
+  - claude-3-opus
+  parameters:
+  - name: video_source
+    type: string
+    description: YouTube URL or indication of video file upload
+  - name: target_market
+    type: string
+    description: e.g., Bitcoin/USDT, EUR/USD, SPY
+  - name: trading_timeframe
+    type: string
+    description: e.g., 5-minute, 1-hour, daily
+  - name: risk_profile
+    type: string
+    description: Conservative / Moderate / Aggressive
+  - name: capital_range
+    type: string
+    description: e.g., $1,000 - $10,000
+  - name: exchange_platform
+    type: string
+    description: e.g., Binance, Interactive Brokers, Alpaca
+  - name: experience_level
+    type: string
+    description: Beginner / Intermediate / Advanced
+  - name: api_access_status
+    type: string
+    description: Yes / No
+  - name: primary_goal
+    type: string
+    description: Learning / Profit / Both
+  - name: specific_risk_limits
+    type: string
+    description: e.g., max 2% loss per trade
+  plan_task: Guide the complete development lifecycle of an automated trading bot.
+  plan_steps:
+  - title: Master Planning
+    details: Establish project scope, constraints, and success criteria.
+  - title: Video Analysis & Methodology Extraction
+    details: Convert video content into structured trading rules.
+  - title: System Documentation
+    details: Formalize trading methodology into technical specifications.
+  - title: Technical Architecture Design
+    details: Design scalable, maintainable system architecture.
+  - title: Implementation
+    details: Generate production-quality code.
+  - title: Testing & Deployment
+    details: Validate system and deploy safely.
+  last_modified: '2025-12-30T02:22:33.234420'
+  file_path: trading/bot_development/master_project_trading_bot.md

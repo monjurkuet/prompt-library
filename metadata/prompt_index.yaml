@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-30T06:59:43.948780'
+  last_modified: '2025-12-30T07:07:22.911810'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-30T06:59:43.960338'
+  last_modified: '2025-12-30T07:07:22.923932'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-30T06:59:43.965578'
+  last_modified: '2025-12-30T07:07:22.929012'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: adaptive-project-architect
   title: The Adaptive Project Architect (Self-Optimizing System)
@@ -139,8 +139,35 @@
   - name: project_name
     type: string
     description: The name of the project.
-  last_modified: '2025-12-30T06:59:43.974721'
+  last_modified: '2025-12-30T07:07:22.938599'
   file_path: utilities/agent_ops/adaptive_project_architect.md
+- id: git-commit-generator
+  title: Git Commit Message Generator
+  description: Generates concise, Conventional Commits-compliant commit messages based
+    on git diff output.
+  category: utilities
+  sub_category: agent_ops
+  tags:
+  - git
+  - commit-message
+  - conventional-commits
+  - automation
+  - developer-tools
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - gpt-4o
+  - claude-3-haiku
+  - gemini-1.5-flash
+  parameters:
+  - name: git_diff_output
+    type: string
+    description: The raw output from `git diff --staged`.
+  - name: context
+    type: string
+    description: Optional context about the changes (e.g., "Refactoring auth module").
+  last_modified: '2025-12-30T07:07:22.941954'
+  file_path: utilities/agent_ops/git_commit_generator.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
   description: An AI agent designed to continuously monitor, integrate, and curate
@@ -196,7 +223,7 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-30T06:59:43.981716'
+  last_modified: '2025-12-30T07:07:22.948384'
   file_path: utilities/prompt_engineering/deep_research_agent.md
 - id: perfect-prompt-engineer
   title: Perfect Prompt Engineer
@@ -219,7 +246,7 @@
     type: string
     description: A detailed description of the prompt the user wants to create, including
       goal, input, output, constraints, and context.
-  last_modified: '2025-12-30T06:59:43.985143'
+  last_modified: '2025-12-30T07:07:22.951954'
   file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
 - id: ml-model-inference-generator
   title: ML Model Inference Code Generator
@@ -249,7 +276,7 @@
   - name: specific_requirements
     type: string
     description: Specific requirements like KV-caching, beam search, or quantization.
-  last_modified: '2025-12-30T06:59:43.993278'
+  last_modified: '2025-12-30T07:07:22.961753'
   file_path: development/code_generation/ml_model_inference_generator.md
 - id: image-generation-prompt-optimizer
   title: Image Generation Prompt Optimizer
@@ -282,5 +309,5 @@
   - name: aspect_ratio
     type: string
     description: Desired aspect ratio (e.g., 16:9, 1:1).
-  last_modified: '2025-12-30T06:59:44.001663'
+  last_modified: '2025-12-30T07:07:22.970143'
   file_path: content/visual/image_generation_prompt_optimizer.md

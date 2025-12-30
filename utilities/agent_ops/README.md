@@ -5,6 +5,13 @@ Prompts for defining agent personas, operational protocols, and self-optimizatio
 ## Available Prompts
 <!-- AUTOMATED_PROMPTS_LIST_START -->
 
+### [Git Commit Message Generator](git_commit_generator.md)
+Generates concise, Conventional Commits-compliant commit messages based on git diff output.
+
+- **Version:** 1.0.0 | **Tags:** git, commit-message, conventional-commits, automation, developer-tools
+
+---
+
 ### [The Adaptive Project Architect (Self-Optimizing System)](adaptive_project_architect.md)
 A meta-prompt that establishes an agent as a self-optimizing Project Architect, capable of learning user preferences and updating its own protocol file (e.g., GEMINI.md) to evolve over time.
 

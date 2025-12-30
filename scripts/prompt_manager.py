@@ -5,7 +5,7 @@ from datetime import datetime
 import argparse  # Added argparse
 
 # --- Configuration ---
-PROMPT_DIRS = ["analysis", "trading"]  # Directories to scan for prompts
+PROMPT_DIRS = ["analysis", "trading", "utilities"]  # Directories to scan for prompts
 METADATA_DIR = "metadata"
 PROMPT_INDEX_FILE = os.path.join(METADATA_DIR, "prompt_index.yaml")
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))

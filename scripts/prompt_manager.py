@@ -468,6 +468,53 @@ def create_new_prompt(args):
         print(f"Error creating prompt file: {e}")
 
 
+def search_prompts(query):
+    """
+    Searches for prompts in the prompt_index.yaml file based on a query string.
+    """
+    index_file_path = os.path.join(PROJECT_ROOT, PROMPT_INDEX_FILE)
+    if not os.path.exists(index_file_path):
+        print(
+            f"Error: Index file not found at {index_file_path}. Run 'index' command first."
+        )
+        return
+
+    try:
+        with open(index_file_path, "r", encoding="utf-8") as f:
+            all_prompts = yaml.safe_load(f) or []
+    except Exception as e:
+        print(f"Error reading index file: {e}")
+        return
+
+    query = query.lower()
+    matches = []
+
+    for prompt in all_prompts:
+        # Check text fields
+        searchable_text = (
+            f"{prompt.get('id', '')} "
+            f"{prompt.get('title', '')} "
+            f"{prompt.get('description', '')} "
+            f"{prompt.get('category', '')} "
+            f"{prompt.get('sub_category', '')}"
+        ).lower()
+
+        # Check tags
+        tags = [t.lower() for t in prompt.get("tags", [])]
+
+        if query in searchable_text or any(query in t for t in tags):
+            matches.append(prompt)
+
+    print(f"\nFound {len(matches)} matches for '{query}':\n")
+    for p in matches:
+        print(f"ID:          {p.get('id')}")
+        print(f"Title:       {p.get('title')}")
+        print(f"Path:        {p.get('file_path')}")
+        print(f"Description: {p.get('description')}")
+        print(f"Tags:        {', '.join(p.get('tags', []))}")
+        print("-" * 40)
+
+
 # --- Main Execution ---
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Manage your prompt library.")
@@ -484,6 +531,12 @@ if __name__ == "__main__":
     )
     # Add arguments for new-prompt if we want non-interactive mode later
 
+    # Search command
+    search_parser = subparsers.add_parser("search", help="Search for prompts.")
+    search_parser.add_argument(
+        "query", help="Keyword to search for (id, title, tags, etc.)"
+    )
+
     args = parser.parse_args()
 
     if args.command == "index":
@@ -491,5 +544,7 @@ if __name__ == "__main__":
         generate_prompt_index()
     elif args.command == "new-prompt":
         create_new_prompt(args)
+    elif args.command == "search":
+        search_prompts(args.query)
     else:
         parser.print_help()

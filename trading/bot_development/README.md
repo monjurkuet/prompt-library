@@ -57,3 +57,13 @@ graph LR
 ## Related Categories
 - [Market Analysis](../market_analysis/)
 - [Backtesting](../backtesting/)
+<!-- AUTOMATED_PROMPTS_LIST_START -->
+
+### [Master Project Prompt for Trading Bot Development](master_project_trading_bot.md)
+Guides the complete development lifecycle of an automated trading bot based on a video demonstration of a trading methodology.
+
+- **Version:** 1.0.0 | **Tags:** trading, bot, project-management, multi-phase
+
+---
+
+<!-- AUTOMATED_PROMPTS_LIST_END -->

@@ -5,7 +5,13 @@ from datetime import datetime
 import argparse  # Added argparse
 
 # --- Configuration ---
-PROMPT_DIRS = ["analysis", "trading", "utilities"]  # Directories to scan for prompts
+PROMPT_DIRS = [
+    "analysis",
+    "trading",
+    "utilities",
+    "development",
+    "content",
+]  # Directories to scan for prompts
 METADATA_DIR = "metadata"
 PROMPT_INDEX_FILE = os.path.join(METADATA_DIR, "prompt_index.yaml")
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir))
@@ -232,8 +238,95 @@ def generate_prompt_index():
         print(
             f"Successfully generated {index_file_path} with {len(all_prompts_metadata)} prompts."
         )
+
+        # Update READMEs after successful indexing
+        update_category_readmes(all_prompts_metadata)
+
     except Exception as e:
         print(f"Error writing prompt index file: {e}")
+
+
+def update_category_readmes(all_prompts_metadata):
+    """
+    Updates README.md files in each category directory with a list of prompts.
+    """
+    print("Updating category READMEs...")
+
+    # Group prompts by directory
+    prompts_by_dir = {}
+    for prompt in all_prompts_metadata:
+        file_path_rel = prompt.get("file_path")
+        if not file_path_rel:
+            continue
+
+        dir_path = os.path.dirname(os.path.join(PROJECT_ROOT, file_path_rel))
+        if dir_path not in prompts_by_dir:
+            prompts_by_dir[dir_path] = []
+        prompts_by_dir[dir_path].append(prompt)
+
+    # Markers
+    START_MARKER = "<!-- AUTOMATED_PROMPTS_LIST_START -->"
+    END_MARKER = "<!-- AUTOMATED_PROMPTS_LIST_END -->"
+
+    for dir_path, prompts in prompts_by_dir.items():
+        readme_path = os.path.join(dir_path, "README.md")
+
+        # Skip if README doesn't exist (we don't create new READMEs, only update existing)
+        if not os.path.exists(readme_path):
+            continue
+
+        with open(readme_path, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Generate list content
+        list_content = "\n"
+        for p in sorted(prompts, key=lambda x: x.get("title", "Untitled")):
+            rel_link = os.path.basename(p["file_path"])
+            desc = p.get("description", "No description.")
+            list_content += f"### [{p.get('title', 'Untitled')}]({rel_link})\n"
+            list_content += f"{desc}\n\n"
+            # Add metadata badges/bullets
+            meta_items = []
+            if "version" in p:
+                meta_items.append(f"**Version:** {p['version']}")
+            if "tags" in p:
+                meta_items.append(f"**Tags:** {', '.join(p['tags'])}")
+            if meta_items:
+                list_content += f"- {' | '.join(meta_items)}\n\n"
+            list_content += "---\n\n"
+
+        # Check for markers
+        if START_MARKER in content and END_MARKER in content:
+            # Replace existing block
+            pattern = re.compile(
+                f"{re.escape(START_MARKER)}.*?{re.escape(END_MARKER)}", re.DOTALL
+            )
+            new_block = f"{START_MARKER}\n{list_content}{END_MARKER}"
+            new_content = pattern.sub(new_block, content)
+        else:
+            # Append markers
+            # Try to find a logical place
+            if "## Prompts" in content:
+                # Insert after ## Prompts header if strictly no markers found yet
+                # This is a bit complex regex, simpler to just append or replace
+                pass
+
+            # Simple strategy: If no markers, append to end or find ## Prompts
+            # Let's append to the end for now if not found, with a header
+            header = (
+                "\n## Available Prompts\n"
+                if "## Prompts" not in content and "## Available Prompts" not in content
+                else "\n"
+            )
+            new_block = f"{header}{START_MARKER}\n{list_content}{END_MARKER}\n"
+            new_content = content + new_block
+
+        if new_content != content:
+            with open(readme_path, "w", encoding="utf-8") as f:
+                f.write(new_content)
+            print(f"Updated {os.path.relpath(readme_path, PROJECT_ROOT)}")
+        else:
+            print(f"No changes needed for {os.path.relpath(readme_path, PROJECT_ROOT)}")
 
 
 def create_new_prompt(args):

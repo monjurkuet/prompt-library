@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-30T06:26:25.785163'
+  last_modified: '2025-12-30T06:34:54.877644'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-30T06:26:25.797685'
+  last_modified: '2025-12-30T06:34:54.889197'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-30T06:26:25.802624'
+  last_modified: '2025-12-30T06:34:54.894463'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
@@ -167,7 +167,7 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-30T06:26:25.815897'
+  last_modified: '2025-12-30T06:34:54.907518'
   file_path: utilities/prompt_engineering/deep_research_agent.md
 - id: perfect-prompt-engineer
   title: Perfect Prompt Engineer
@@ -190,5 +190,68 @@
     type: string
     description: A detailed description of the prompt the user wants to create, including
       goal, input, output, constraints, and context.
-  last_modified: '2025-12-30T06:26:25.819073'
+  last_modified: '2025-12-30T06:34:54.911004'
   file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
+- id: ml-model-inference-generator
+  title: ML Model Inference Code Generator
+  description: Generates optimized inference code (generate methods) for Machine Learning
+    models, supporting PyTorch and JAX/Flax frameworks.
+  category: development
+  sub_category: code_generation
+  tags:
+  - machine-learning
+  - code-generation
+  - pytorch
+  - jax
+  - inference
+  - optimization
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - gpt-4o
+  - claude-3-5-sonnet
+  parameters:
+  - name: framework
+    type: string
+    description: Target framework (pytorch | jax | flax).
+  - name: model_architecture
+    type: string
+    description: Description of the model architecture (e.g., Transformer, LSTM, Diffusion).
+  - name: specific_requirements
+    type: string
+    description: Specific requirements like KV-caching, beam search, or quantization.
+  last_modified: '2025-12-30T06:34:54.919474'
+  file_path: development/code_generation/ml_model_inference_generator.md
+- id: image-generation-prompt-optimizer
+  title: Image Generation Prompt Optimizer
+  description: Refines and enhances natural language prompts to create stunning, high-fidelity
+    images with generative AI tools like Midjourney, Stable Diffusion, and Amazon
+    Nova Canvas.
+  category: content
+  sub_category: visual
+  tags:
+  - image-generation
+  - prompt-engineering
+  - visual-content
+  - midjourney
+  - stable-diffusion
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - gpt-4o
+  - claude-3-opus
+  parameters:
+  - name: original_idea
+    type: string
+    description: The user's basic concept for the image.
+  - name: target_model
+    type: string
+    description: The specific image generation model (e.g., Midjourney v6, SDXL).
+  - name: artistic_style
+    type: string
+    description: Desired style (e.g., Cyberpunk, Photorealistic, Oil Painting).
+  - name: aspect_ratio
+    type: string
+    description: Desired aspect ratio (e.g., 16:9, 1:1).
+  last_modified: '2025-12-30T06:34:54.927824'
+  file_path: content/visual/image_generation_prompt_optimizer.md

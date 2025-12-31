@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-31T08:21:02.844725'
+  last_modified: '2025-12-31T09:37:51.270202'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-31T08:21:02.848257'
+  last_modified: '2025-12-31T09:37:51.274710'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-31T08:21:02.849093'
+  last_modified: '2025-12-31T09:37:51.276232'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: adaptive-project-architect
   title: The Adaptive Project Architect (Self-Optimizing System)
@@ -139,7 +139,7 @@
   - name: project_name
     type: string
     description: The name of the project.
-  last_modified: '2025-12-31T08:21:02.850393'
+  last_modified: '2025-12-31T09:37:51.277920'
   file_path: utilities/agent_ops/adaptive_project_architect.md
 - id: git-commit-generator
   title: Git Commit Message Generator
@@ -166,7 +166,7 @@
   - name: context
     type: string
     description: Optional context about the changes (e.g., "Refactoring auth module").
-  last_modified: '2025-12-31T08:21:02.851469'
+  last_modified: '2025-12-31T09:37:51.279602'
   file_path: utilities/agent_ops/git_commit_generator.md
 - id: knowledge-base-agent-template
   title: Knowledge Base Agent Template (GEMINI.md)
@@ -193,7 +193,7 @@
     description: Provide initial high-level goals and scope for the knowledge base
       (e.g., primary purpose, target audience, key content types). The agent will
       use this to guide its Phase 1 Boot Sequence for more detailed setup.
-  last_modified: '2025-12-31T08:21:02.852554'
+  last_modified: '2025-12-31T09:37:51.281554'
   file_path: utilities/agent_ops/knowledge_base_agent_template.md
 - id: perfect-prompt-engineer
   title: Perfect Prompt Engineer (Cognitive Architect)
@@ -221,7 +221,7 @@
     type: string
     description: A detailed description of the prompt the user wants to create, including
       goal, input, output, constraints, and context.
-  last_modified: '2025-12-31T08:21:02.853761'
+  last_modified: '2025-12-31T09:37:51.282998'
   file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
 - id: tree-of-thoughts-template
   title: Tree-of-Thoughts / Step-Back Reasoning
@@ -255,7 +255,7 @@
       analysis (e.g., 'What are the fundamental principles at play here?', 'What is
       the core challenge?').
     optional: true
-  last_modified: '2025-12-31T08:21:02.855301'
+  last_modified: '2025-12-31T09:37:51.284959'
   file_path: utilities/prompt_engineering/tree_of_thoughts_template.md
 - id: self-ask-decomposition-template
   title: Self-Ask Decomposition
@@ -283,7 +283,7 @@
     type: number
     description: The target number of sub-questions the LLM should generate for decomposition.
     default: 3
-  last_modified: '2025-12-31T08:21:02.856522'
+  last_modified: '2025-12-31T09:37:51.286749'
   file_path: utilities/prompt_engineering/self_ask_decomposition_template.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
@@ -340,7 +340,7 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-31T08:21:02.859545'
+  last_modified: '2025-12-31T09:37:51.290930'
   file_path: utilities/prompt_engineering/deep_research_agent.md
 - id: self-critique-refinement-template
   title: Self-Critique & Refinement Loop
@@ -373,8 +373,762 @@
     description: The number of times the LLM should attempt to critique and refine
       its output (e.g., 1 for one critique pass, 2 for two passes).
     default: 1
-  last_modified: '2025-12-31T08:21:02.861064'
+  last_modified: '2025-12-31T09:37:51.293214'
   file_path: utilities/prompt_engineering/self_critique_refinement_template.md
+- id: refinement-continuous-optimization-agent
+  title: Refinement & Continuous Optimization Agent
+  description: Continuously analyzes code, performance metrics, and project goals
+    to identify technical debt, performance bottlenecks, and architectural weaknesses,
+    proposing actionable, prioritized recommendations for improvement.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - refactoring
+  - optimization
+  - code-quality
+  - technical-debt
+  - performance
+  - architecture
+  - maintenance
+  - code-analysis
+  - continuous-improvement
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: codebase_context
+    type: string
+    description: Relevant code snippets, modules, or a high-level description of the
+      codebase.
+  - name: analysis_scope
+    type: string
+    description: The specific area to analyze (e.g., "entire project", "auth module",
+      "database queries", "performance of function X").
+  - name: optimization_goals
+    type: array
+    items:
+      type: string
+    description: Prioritized goals for optimization (e.g., "reduce cloud costs", "improve
+      API response time", "enhance code readability", "fix security vulnerabilities",
+      "reduce technical debt").
+  - name: provided_metrics_reports
+    type: string
+    description: Any available metrics or reports (e.g., "profiling data", "static
+      analysis report", "cloud cost report", "bug density per module").
+    optional: true
+  - name: architectural_overview
+    type: string
+    description: A brief overview of the system's architecture or design patterns
+      in use.
+    optional: true
+  - name: current_priorities
+    type: string
+    description: Current team/project priorities that should influence recommendations
+      (e.g., "focus on shipping features quickly", "security is paramount").
+    optional: true
+  last_modified: '2025-12-31T09:37:51.295909'
+  file_path: development/agent_roles/refinement_continuous_optimization_agent.md
+- id: ci-cd-pipeline-agent
+  title: CI/CD Pipeline Automation Engineer
+  description: Generates robust, secure, and maintainable CI/CD pipeline configurations
+    (e.g., GitHub Actions, GitLab CI, Jenkinsfile) from natural language specifications.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - ci-cd
+  - automation
+  - devops
+  - pipeline
+  - github-actions
+  - gitlab-ci
+  - jenkins
+  - automation-engineer
+  - security
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: ci_cd_platform
+    type: string
+    description: The target CI/CD platform (e.g., "GitHub Actions", "GitLab CI", "Jenkins").
+  - name: project_description
+    type: string
+    description: A brief description of the project, including its primary language,
+      framework, and purpose.
+  - name: repository_structure
+    type: string
+    description: An overview of the repository's directory structure (e.g., "src/
+      for source, tests/ for unit tests, docs/ for documentation").
+  - name: desired_stages
+    type: array
+    items:
+      type: string
+    description: A list of desired pipeline stages (e.g., "build", "unit_test", "integration_test",
+      "code_scan", "deploy_staging", "deploy_production").
+  - name: specific_requirements
+    type: string
+    description: Any specific requirements for the pipeline (e.g., "use Node.js 18.x",
+      "run 'npm test'", "deploy to AWS S3 bucket 'my-app-staging'").
+  - name: security_considerations
+    type: string
+    description: Specific security practices to integrate (e.g., "scan for vulnerabilities",
+      "use secret management", "least privilege").
+    optional: true
+  - name: additional_notes
+    type: string
+    description: Any other relevant information or constraints.
+    optional: true
+  last_modified: '2025-12-31T09:37:51.298679'
+  file_path: development/agent_roles/ci_cd_pipeline_agent.md
+- id: requirements-analyst-agent
+  title: Requirements Analyst Agent
+  description: An AI agent that acts as a Requirements Analyst, clarifying ambiguities,
+    generating detailed functional and non-functional requirements, user stories,
+    and acceptance criteria from high-level user needs.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - requirements-engineering
+  - user-stories
+  - functional-requirements
+  - non-functional-requirements
+  - business-analysis
+  - project-planning
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: user_needs_description
+    type: string
+    description: A high-level description of the user's needs, problem, or desired
+      software functionality.
+  - name: clarification_questions
+    type: string
+    description: Optional. Specific questions the agent should ask for clarification
+      before generating requirements.
+    optional: true
+  - name: output_format_preference
+    type: string
+    description: Desired format for the output (e.g., 'User Stories in Gherkin', 'Bullet
+      Points of FRs/NFRs', 'Structured JSON').
+    default: User Stories in Gherkin
+  last_modified: '2025-12-31T09:37:51.300605'
+  file_path: development/agent_roles/requirements_analyst_agent.md
+- id: bug-triage-agent
+  title: Bug Triage Agent
+  description: An AI agent that acts as a Bug Triage Specialist, analyzing bug reports
+    to extract critical information, assess severity and impact, identify duplicates,
+    and prioritize bugs for efficient resolution in software development workflows.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - bug-triage
+  - defect-management
+  - quality-assurance
+  - software-testing
+  - bug-prioritization
+  - SDLC
+  - AI-agent
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: bug_report_details
+    type: string
+    description: The full bug report, including problem description, steps to reproduce,
+      actual vs. expected behavior, and environment details.
+  - name: project_context
+    type: string
+    description: Optional. High-level project context, affected modules, or recent
+      changes that might influence triage.
+    optional: true
+  - name: known_issues_database
+    type: string
+    description: Optional. A summary or list of known issues or resolved bugs to help
+      identify duplicates.
+    optional: true
+  - name: triage_criteria
+    type: string
+    description: 'Optional. Specific criteria for severity and priority (e.g., ''Critical:
+      blocks production; High: significant impact; Medium: minor impact; Low: cosmetic'').'
+    optional: true
+  - name: output_format_preference
+    type: string
+    description: Desired format for the triage output (e.g., 'Markdown summary', 'JSON
+      with fields', 'Jira-like comment').
+    default: Markdown summary
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.303953'
+  file_path: development/agent_roles/bug_triage_agent.md
+- id: deployment-engineer-agent
+  title: Deployment Engineer / Cloud Architect
+  description: Designs and generates robust, secure, and resilient deployment strategies
+    and their corresponding Infrastructure as Code (IaC) configurations for various
+    cloud environments or Kubernetes clusters.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - devops
+  - deployment
+  - ia-c
+  - terraform
+  - kubernetes
+  - cloud
+  - aws
+  - azure
+  - gcp
+  - sre
+  - strategy
+  - blue-green
+  - canary
+  - rolling-update
+  - monitoring
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: application_description
+    type: string
+    description: A detailed description of the application, its architecture, and
+      dependencies.
+  - name: target_environment
+    type: string
+    description: The target deployment environment (e.g., "AWS EKS cluster", "Azure
+      App Service", "GCP Cloud Run", "On-premise Kubernetes").
+  - name: deployment_strategy_preference
+    type: string
+    description: Preferred deployment strategy (e.g., "blue/green", "canary", "rolling
+      update", "standard").
+    default: standard
+  - name: resource_requirements
+    type: string
+    description: Estimated resource needs (e.g., "2 vCPU, 4GB RAM per instance", "auto-scaling
+      up to 10 instances", "GPU requirements").
+    optional: true
+  - name: monitoring_requirements
+    type: string
+    description: Key metrics to monitor, alerting thresholds, and preferred monitoring
+      tools.
+    optional: true
+  - name: security_compliance_needs
+    type: string
+    description: Specific security and compliance standards (e.g., "SOC 2", "GDPR",
+      "encrypt all data at rest").
+    optional: true
+  - name: rollback_plan_preference
+    type: string
+    description: How critical is a fast, automated rollback (e.g., "must be instant",
+      "acceptable within 5 minutes").
+    default: fast and automated
+  - name: additional_constraints
+    type: string
+    description: Any other relevant information or constraints.
+    optional: true
+  last_modified: '2025-12-31T09:37:51.307069'
+  file_path: development/agent_roles/deployment_engineer_agent.md
+- id: project-manager-coordinator-agent
+  title: Project Manager/Coordinator Agent
+  description: An AI agent that acts as a Project Manager or Scrum Master, overseeing
+    the SDLC, coordinating tasks, managing timelines, identifying dependencies, tracking
+    progress, and facilitating communication among other agents or team members.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - project-management
+  - scrum-master
+  - task-management
+  - coordination
+  - agile
+  - sdcl
+  - planning
+  - risk-management
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: project_goal_description
+    type: string
+    description: A high-level description of the project's overall goal and desired
+      outcome.
+  - name: requirements_summary
+    type: string
+    description: A summary of the project requirements (e.g., from Requirements Analyst
+      Agent output).
+  - name: current_status
+    type: string
+    description: Optional. Current status of the project, including any completed
+      tasks or identified issues.
+    optional: true
+  - name: team_members_or_agents
+    type: string
+    description: A list or description of human team members or AI agents involved
+      in the project (e.g., 'Developer Agent, Test Agent, Human QA').
+  - name: output_format_preference
+    type: string
+    description: Desired format for the project plan or update (e.g., 'Markdown List',
+      'JSON', 'Gantt Chart concept').
+    default: Markdown List
+  - name: task_type
+    type: string
+    description: The specific project management task to perform (e.g., 'create project
+      plan', 'update status report', 'identify risks', 'assign tasks').
+    enum:
+    - create project plan
+    - update status report
+    - identify risks
+    - assign tasks
+    - facilitate sprint planning
+    - conduct retrospective summary
+  last_modified: '2025-12-31T09:37:51.310054'
+  file_path: development/agent_roles/project_manager_coordinator_agent.md
+- id: security-agent
+  title: Application Security Engineer
+  description: Conducts security analysis on code and designs, identifies vulnerabilities
+    (e.g., OWASP Top 10), performs conceptual threat modeling, and suggests secure
+    coding practices and mitigation strategies.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - security
+  - vulnerability-analysis
+  - threat-modeling
+  - secure-coding
+  - owasp
+  - appsec
+  - compliance
+  - static-analysis
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: analysis_scope
+    type: string
+    description: The specific area for security analysis (e.g., "code snippet", "module",
+      "API endpoint", "design document", "entire application overview").
+  - name: code_design_context
+    type: string
+    description: Relevant code, design specifications, architecture diagrams, or functional
+      requirements for analysis.
+  - name: application_type
+    type: string
+    description: The type of application being analyzed (e.g., "web application",
+      "mobile API", "backend service", "desktop client").
+  - name: specific_vulnerabilities_to_check
+    type: array
+    items:
+      type: string
+    description: Specific vulnerabilities or categories to focus on (e.g., "OWASP
+      Top 10", "SQL Injection", "XSS", "misconfiguration").
+    optional: true
+  - name: compliance_requirements
+    type: string
+    description: Any specific compliance standards to consider (e.g., "HIPAA", "PCI
+      DSS", "GDPR").
+    optional: true
+  - name: additional_context
+    type: string
+    description: Any other relevant security context or concerns.
+    optional: true
+  last_modified: '2025-12-31T09:37:51.312473'
+  file_path: development/agent_roles/security_agent.md
+- id: code-review-agent
+  title: Code Review Agent
+  description: An AI agent that acts as a meticulous Code Reviewer, performing automated
+    reviews to identify bugs, security vulnerabilities, performance issues, style
+    violations, and suggest improvements. It provides actionable feedback and adheres
+    to specified coding standards.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - code-review
+  - code-quality
+  - security-review
+  - performance-optimization
+  - code-smells
+  - best-practices
+  - software-development
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: code_to_review
+    type: string
+    description: The full code snippet, function, or pull request diff to be reviewed.
+  - name: review_focus_areas
+    type: string
+    description: Specific areas to focus the review on (e.g., 'bugs', 'security',
+      'performance', 'readability', 'adherence to design patterns', 'all').
+    default: all
+  - name: target_language_framework
+    type: string
+    description: The programming language and optional framework of the code (e.g.,
+      'Python', 'JavaScript with React', 'Java Spring Boot').
+  - name: coding_standards_guidelines
+    type: string
+    description: Optional. Specific coding standards or guidelines to adhere to (e.g.,
+      'PEP 8', 'Google Style Guide', 'team-specific conventions').
+    optional: true
+  - name: additional_context
+    type: string
+    description: Optional. Any additional context like project goals, architectural
+      decisions, or recent changes.
+    optional: true
+  - name: output_format_preference
+    type: string
+    description: Desired format for the review comments (e.g., 'Markdown List', 'JSON
+      comments', 'Git diff suggestions').
+    default: Markdown List with detailed explanations
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.315866'
+  file_path: development/agent_roles/code_review_agent.md
+- id: learning-adaptation-agent
+  title: Learning & Adaptation Agent (Meta-Agent)
+  description: Monitors the performance, interactions, and outputs of a multi-agent
+    system, identifies patterns for improvement, and dynamically suggests adjustments
+    to individual agent prompts, protocols, or overall system architecture for enhanced
+    adaptiveness and efficiency.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - meta-agent
+  - orchestration
+  - adaptive-learning
+  - self-improvement
+  - multi-agent-system
+  - protocol-optimization
+  - dynamic-prompts
+  - continuous-improvement
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: agent_performance_logs
+    type: string
+    description: Consolidated logs or reports detailing individual agent performance
+      (e.g., task success/failure rates, output quality scores, resource usage).
+  - name: inter_agent_communication_logs
+    type: string
+    description: Logs or summaries of communication and collaboration patterns between
+      agents.
+    optional: true
+  - name: system_level_metrics
+    type: string
+    description: Overall system metrics (e.g., end-to-end task completion times, aggregated
+      error rates, user satisfaction scores).
+  - name: current_agent_prompts_protocols
+    type: string
+    description: The current prompts and operational protocols (e.g., GEMINI.md files)
+      of the agents within the system.
+  - name: overarching_system_goals
+    type: string
+    description: The primary goals and objectives of the entire multi-agent software
+      development system.
+  - name: analysis_focus
+    type: string
+    description: Specific areas or questions to focus the meta-analysis on (e.g.,
+      "optimize agent collaboration for debugging", "improve code generation accuracy",
+      "reduce deployment time").
+    optional: true
+  last_modified: '2025-12-31T09:37:51.318427'
+  file_path: development/agent_roles/learning_adaptation_agent.md
+- id: software-architecture-design-agent
+  title: Software Architecture Design Agent
+  description: An AI agent acting as a Solutions Architect, designing robust, scalable,
+    and maintainable software architectures from high-level requirements. It proposes
+    patterns, components, data flows, and justifies design decisions, adhering to
+    best practices.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - software-architecture
+  - system-design
+  - architectural-patterns
+  - requirements-analysis
+  - design-principles
+  - scalability
+  - maintainability
+  - security
+  - AI-design
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: high_level_requirements
+    type: string
+    description: A clear description of the high-level functional and non-functional
+      requirements for the software system (e.g., user load, availability, data types,
+      security needs).
+  - name: current_system_context
+    type: string
+    description: Optional. Description of any existing systems, infrastructure, or
+      technical debt that the new architecture must integrate with or consider.
+    optional: true
+  - name: target_tech_stack_preference
+    type: string
+    description: Optional. Preferred technologies or frameworks (e.g., 'cloud-native
+      on AWS', 'Python with Django', 'Kubernetes').
+    optional: true
+  - name: design_constraints
+    type: string
+    description: Optional. Specific constraints (e.g., 'budget limits', 'compliance
+      standards like HIPAA/GDPR', 'legacy system integration').
+    optional: true
+  - name: output_detail_level
+    type: string
+    description: Desired level of detail for the architectural design ('high-level
+      overview', 'component breakdown', 'detailed design').
+    enum:
+    - high-level overview
+    - component breakdown
+    - detailed design
+    default: component breakdown
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.321971'
+  file_path: development/agent_roles/software_architecture_design_agent.md
+- id: documentation-agent
+  title: Technical Documentation Specialist
+  description: Generates various forms of software documentation (e.g., API docs,
+    user manuals, code comments, design documents) from source material, tailored
+    for a specific audience and output format.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - documentation
+  - technical-writing
+  - api-docs
+  - user-manuals
+  - code-comments
+  - design-docs
+  - automation
+  - clarity
+  - accuracy
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: doc_type
+    type: string
+    description: The type of documentation to generate (e.g., "API Documentation",
+      "User Manual", "Code Comments", "Design Document Summary").
+  - name: source_material
+    type: string
+    description: The source material for documentation (e.g., "code snippet", "functional
+      specifications", "architectural design", "user stories").
+  - name: target_audience
+    type: string
+    description: The intended audience for the documentation (e.g., "developers",
+      "end-users", "project managers", "technical leads").
+  - name: output_format
+    type: string
+    description: The desired output format (e.g., "Markdown", "OpenAPI YAML", "JSDoc
+      comments", "Sphinx reStructuredText").
+  - name: specific_conventions
+    type: string
+    description: Any specific conventions or style guides to follow (e.g., "Google
+      Developer Documentation Style Guide", "include examples").
+    optional: true
+  - name: additional_context
+    type: string
+    description: Any other relevant information or context.
+    optional: true
+  last_modified: '2025-12-31T09:37:51.324202'
+  file_path: development/agent_roles/documentation_agent.md
+- id: metrics-analytics-agent
+  title: Software Engineering Metrics & Analytics Specialist
+  description: Analyzes software development and operational metrics data (e.g., DORA,
+    code quality, build times, incidents) to identify trends, detect anomalies, generate
+    actionable insights, and propose recommendations for continuous improvement.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - metrics
+  - analytics
+  - data-analysis
+  - devops
+  - dora
+  - code-quality
+  - performance
+  - incident-management
+  - reporting
+  - continuous-improvement
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: metrics_data
+    type: string
+    description: Raw or summarized metrics data (e.g., "DORA metrics for last quarter",
+      "CI/CD pipeline logs", "code quality report", "incident tickets data", "test
+      coverage trends"). Provide in a structured format like JSON, CSV, or well-formatted
+      Markdown tables.
+  - name: analysis_focus
+    type: string
+    description: Specific areas or questions to focus the analysis on (e.g., "identify
+      bottlenecks in deployment frequency", "understand trends in bug severity", "assess
+      impact of recent refactoring on code quality").
+  - name: project_context
+    type: string
+    description: Background information about the project, team, or recent changes
+      that might influence data interpretation.
+    optional: true
+  - name: target_audience
+    type: string
+    description: The intended audience for the report (e.g., "engineering lead", "product
+      manager", "developer team").
+    default: engineering lead
+  - name: desired_output_format
+    type: string
+    description: The desired format for the output (e.g., "summary report", "dashboard
+      insights", "trend analysis", "action plan").
+    default: summary report with action plan
+  last_modified: '2025-12-31T09:37:51.326832'
+  file_path: development/agent_roles/metrics_analytics_agent.md
+- id: qa-analyst-agent
+  title: QA Analyst/Test Orchestrator Agent
+  description: An AI agent acting as a QA Analyst and Test Orchestrator, designing
+    comprehensive test plans, strategizing testing approaches, generating test data,
+    and analyzing test results to ensure software quality and adherence to requirements.
+  category: development
+  sub_category: agent_roles
+  tags:
+  - qa
+  - testing
+  - test-planning
+  - test-strategy
+  - test-orchestration
+  - quality-assurance
+  - software-quality
+  - regression-testing
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: system_under_test_description
+    type: string
+    description: A detailed description of the software system, feature, or component
+      to be tested.
+  - name: requirements_specifications
+    type: string
+    description: The functional and non-functional requirements or user stories relevant
+      to the system under test.
+  - name: test_task_type
+    type: string
+    description: The specific QA task to perform ('generate test plan', 'design test
+      strategy', 'generate test data', 'analyze test results', 'identify test coverage
+      gaps').
+    enum:
+    - generate test plan
+    - design test strategy
+    - generate test data
+    - analyze test results
+    - identify test coverage gaps
+  - name: existing_artifacts
+    type: string
+    description: Optional. Existing test cases, code snippets, architectural diagrams,
+      or bug reports to provide context.
+    optional: true
+  - name: testing_context
+    type: string
+    description: Optional. Specific context like target environment, performance goals,
+      security concerns, or regulatory compliance.
+    optional: true
+  - name: output_format_preference
+    type: string
+    description: Desired format for the output (e.g., 'Markdown List', 'JSON test
+      plan', 'Table').
+    default: Markdown List
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.330742'
+  file_path: development/agent_roles/qa_analyst_agent.md
+- id: code-generation-agent
+  title: Code Generation Agent
+  description: An AI agent that generates high-quality, robust, and well-documented
+    code from detailed specifications. It adheres to best practices, supports multiple
+    languages, and can incorporate iterative refinement and test-driven development
+    principles.
+  category: development
+  sub_category: code_generation
+  tags:
+  - code-generation
+  - software-development
+  - programming
+  - multi-language
+  - TDD
+  - AI-coding
+  - code-synthesis
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: detailed_specification
+    type: string
+    description: A comprehensive description of the desired code's functionality,
+      including input/output, logic, and any algorithms.
+  - name: target_language
+    type: string
+    description: The programming language for the generated code (e.g., 'Python',
+      'JavaScript', 'Java', 'Go').
+  - name: coding_standards
+    type: string
+    description: Optional. Specific coding standards or style guides to follow (e.g.,
+      'PEP 8', 'Google Style Guide').
+    optional: true
+  - name: existing_code_context
+    type: string
+    description: Optional. Relevant existing code snippets, APIs, or architectural
+      context to integrate with.
+    optional: true
+  - name: test_cases
+    type: string
+    description: Optional. Explicit test cases with expected inputs and outputs to
+      guide generation and verification (e.g., in TDD format).
+    optional: true
+  - name: error_handling_requirements
+    type: string
+    description: Optional. Specific requirements for error handling and edge cases.
+    optional: true
+  - name: include_documentation
+    type: boolean
+    description: Whether to include inline comments and docstrings/documentation for
+      the generated code.
+    default: true
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.334587'
+  file_path: development/code_generation/code_generation_agent.md
 - id: ml-model-inference-generator
   title: ML Model Inference Code Generator
   description: Generates optimized inference code (generate methods) for Machine Learning
@@ -403,8 +1157,169 @@
   - name: specific_requirements
     type: string
     description: Specific requirements like KV-caching, beam search, or quantization.
-  last_modified: '2025-12-31T08:21:02.862529'
+  last_modified: '2025-12-31T09:37:51.345989'
   file_path: development/code_generation/ml_model_inference_generator.md
+- id: test-generation-agent
+  title: Test Generation Agent
+  description: An AI agent that generates comprehensive and robust unit, integration,
+    or end-to-end test cases for code modules or functions, aiming for high coverage
+    and adherence to specified frameworks and best practices.
+  category: development
+  sub_category: code_generation
+  tags:
+  - testing
+  - unit-tests
+  - integration-tests
+  - test-generation
+  - test-coverage
+  - tdd
+  - qa
+  - software-development
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: code_or_specification
+    type: string
+    description: The code snippet, function, module, or detailed specification for
+      which tests need to be generated.
+  - name: test_type
+    type: string
+    description: The type of tests to generate ('unit', 'integration', 'end-to-end').
+    enum:
+    - unit
+    - integration
+    - end-to-end
+    default: unit
+  - name: target_language_framework
+    type: string
+    description: The programming language and optional testing framework (e.g., 'Python
+      unittest', 'JavaScript Jest', 'Java JUnit').
+  - name: testing_goals
+    type: string
+    description: Specific testing goals (e.g., 'achieve 80% line coverage', 'test
+      edge cases', 'verify API interactions').
+  - name: existing_tests_context
+    type: string
+    description: Optional. Existing tests to ensure new tests don't duplicate or to
+      follow existing patterns.
+    optional: true
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.352028'
+  file_path: development/code_generation/test_generation_agent.md
+- id: debugging-agent
+  title: Debugging Agent
+  description: An AI agent that acts as an expert debugger, analyzing error messages,
+    stack traces, and code to identify root causes, propose precise fixes, and explain
+    its reasoning. It can generate diagnostic tests and verify solutions.
+  category: development
+  sub_category: code_generation
+  tags:
+  - debugging
+  - error-resolution
+  - bug-localization
+  - code-analysis
+  - software-development
+  - AI-coding
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: problem_description
+    type: string
+    description: A clear description of the observed bug or unexpected behavior.
+  - name: error_message
+    type: string
+    description: The full error message, including stack trace if available.
+  - name: relevant_code_snippets
+    type: string
+    description: All code snippets relevant to the problem, ideally including surrounding
+      context.
+  - name: environment_details
+    type: string
+    description: Optional. Details about the operating system, language version, dependencies,
+      etc.
+    optional: true
+  - name: steps_to_reproduce
+    type: string
+    description: Optional. Clear steps to reproduce the bug.
+    optional: true
+  - name: attempted_solutions
+    type: string
+    description: Optional. A description of any solutions already attempted and their
+      results.
+    optional: true
+  - name: desired_output_type
+    type: string
+    description: Desired format for the output (e.g., 'Proposed Fix with Explanation',
+      'Root Cause Analysis', 'Diagnostic Test').
+    enum:
+    - Proposed Fix with Explanation
+    - Root Cause Analysis
+    - Diagnostic Test
+    - All
+    default: Proposed Fix with Explanation
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.355704'
+  file_path: development/code_generation/debugging_agent.md
+- id: code-refactoring-agent
+  title: Code Refactoring Agent
+  description: An AI agent that refactors and optimizes code for improved readability,
+    maintainability, performance, and adherence to design patterns. It explains changes
+    and justifies improvements, suggesting test verification.
+  category: development
+  sub_category: code_generation
+  tags:
+  - refactoring
+  - code-optimization
+  - code-quality
+  - design-patterns
+  - software-development
+  - AI-coding
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: code_to_refactor
+    type: string
+    description: The full code snippet, function, or module that needs refactoring/optimization.
+  - name: refactoring_goals
+    type: string
+    description: Specific goals for refactoring (e.g., 'improve readability', 'optimize
+      for performance', 'apply Singleton design pattern', 'reduce duplication', 'follow
+      SOLID principles').
+  - name: target_language_framework
+    type: string
+    description: The programming language and optional framework of the code (e.g.,
+      'Python', 'JavaScript with React', 'Java Spring Boot').
+  - name: existing_tests
+    type: string
+    description: Optional. Existing unit or integration tests for the provided code,
+      to ensure refactoring does not break functionality.
+    optional: true
+  - name: constraints_guidelines
+    type: string
+    description: Optional. Any specific constraints (e.g., 'maintain public API',
+      'avoid breaking changes') or coding guidelines to follow.
+    optional: true
+  - name: iterations_for_refinement
+    type: number
+    description: Number of self-correction/refinement iterations to perform (0 for
+      no iteration, 1 for one pass).
+    default: 0
+  last_modified: '2025-12-31T09:37:51.358269'
+  file_path: development/code_generation/code_refactoring_agent.md
 - id: image-generation-prompt-optimizer
   title: Image Generation Prompt Optimizer
   description: Refines and enhances natural language prompts to create stunning, high-fidelity
@@ -436,5 +1351,5 @@
   - name: aspect_ratio
     type: string
     description: Desired aspect ratio (e.g., 16:9, 1:1).
-  last_modified: '2025-12-31T08:21:02.864178'
+  last_modified: '2025-12-31T09:37:51.360456'
   file_path: content/visual/image_generation_prompt_optimizer.md

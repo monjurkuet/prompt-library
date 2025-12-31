@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-30T07:07:22.911810'
+  last_modified: '2025-12-31T08:11:59.105298'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-30T07:07:22.923932'
+  last_modified: '2025-12-31T08:11:59.109320'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-30T07:07:22.929012'
+  last_modified: '2025-12-31T08:11:59.110488'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: adaptive-project-architect
   title: The Adaptive Project Architect (Self-Optimizing System)
@@ -139,7 +139,7 @@
   - name: project_name
     type: string
     description: The name of the project.
-  last_modified: '2025-12-30T07:07:22.938599'
+  last_modified: '2025-12-31T08:11:59.112004'
   file_path: utilities/agent_ops/adaptive_project_architect.md
 - id: git-commit-generator
   title: Git Commit Message Generator
@@ -166,8 +166,63 @@
   - name: context
     type: string
     description: Optional context about the changes (e.g., "Refactoring auth module").
-  last_modified: '2025-12-30T07:07:22.941954'
+  last_modified: '2025-12-31T08:11:59.113367'
   file_path: utilities/agent_ops/git_commit_generator.md
+- id: knowledge-base-agent-template
+  title: Knowledge Base Agent Template (GEMINI.md)
+  description: A customizable GEMINI.md template for an agent designed to manage a
+    knowledge base repository, focusing on initial goal ascertainment, structured
+    curation, and continuous self-optimization.
+  category: utilities
+  sub_category: agent_ops
+  tags:
+  - knowledge-base
+  - agent-ops
+  - gemini-md
+  - template
+  - self-optimizing
+  - metacognition
+  - project-management
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: initial_kb_goals
+    type: string
+    description: Provide initial high-level goals and scope for the knowledge base
+      (e.g., primary purpose, target audience, key content types). The agent will
+      use this to guide its Phase 1 Boot Sequence for more detailed setup.
+  last_modified: '2025-12-31T08:11:59.114486'
+  file_path: utilities/agent_ops/knowledge_base_agent_template.md
+- id: perfect-prompt-engineer
+  title: Perfect Prompt Engineer (Cognitive Architect)
+  description: An expert AI prompt engineer that designs and formulates high-quality,
+    research-backed LLM prompts based on user requirements, utilizing a structured
+    cognitive architecture and heuristic mediators.
+  category: utilities
+  sub_category: prompt_engineering
+  tags:
+  - prompt-engineering
+  - meta-prompt
+  - best-practices
+  - research
+  - LLM-design
+  - cognitive-architecture
+  - xml-delimiters
+  - cot
+  - metacognition
+  version: 2.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: user_description
+    type: string
+    description: A detailed description of the prompt the user wants to create, including
+      goal, input, output, constraints, and context.
+  last_modified: '2025-12-31T08:11:59.116228'
+  file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
   description: An AI agent designed to continuously monitor, integrate, and curate
@@ -223,31 +278,8 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-30T07:07:22.948384'
+  last_modified: '2025-12-31T08:11:59.119590'
   file_path: utilities/prompt_engineering/deep_research_agent.md
-- id: perfect-prompt-engineer
-  title: Perfect Prompt Engineer
-  description: An expert AI prompt engineer that designs and formulates high-quality,
-    research-backed LLM prompts based on user requirements.
-  category: utilities
-  sub_category: prompt_engineering
-  tags:
-  - prompt-engineering
-  - meta-prompt
-  - best-practices
-  - research
-  - LLM-design
-  version: 1.0.0
-  status: active
-  llm_model_compatibility:
-  - any
-  parameters:
-  - name: user_request_description
-    type: string
-    description: A detailed description of the prompt the user wants to create, including
-      goal, input, output, constraints, and context.
-  last_modified: '2025-12-30T07:07:22.951954'
-  file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
 - id: ml-model-inference-generator
   title: ML Model Inference Code Generator
   description: Generates optimized inference code (generate methods) for Machine Learning
@@ -276,7 +308,7 @@
   - name: specific_requirements
     type: string
     description: Specific requirements like KV-caching, beam search, or quantization.
-  last_modified: '2025-12-30T07:07:22.961753'
+  last_modified: '2025-12-31T08:11:59.121627'
   file_path: development/code_generation/ml_model_inference_generator.md
 - id: image-generation-prompt-optimizer
   title: Image Generation Prompt Optimizer
@@ -309,5 +341,5 @@
   - name: aspect_ratio
     type: string
     description: Desired aspect ratio (e.g., 16:9, 1:1).
-  last_modified: '2025-12-30T07:07:22.970143'
+  last_modified: '2025-12-31T08:11:59.123670'
   file_path: content/visual/image_generation_prompt_optimizer.md

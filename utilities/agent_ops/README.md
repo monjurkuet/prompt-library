@@ -12,6 +12,13 @@ Generates concise, Conventional Commits-compliant commit messages based on git d
 
 ---
 
+### [Knowledge Base Agent Template (GEMINI.md)](knowledge_base_agent_template.md)
+A customizable GEMINI.md template for an agent designed to manage a knowledge base repository, focusing on initial goal ascertainment, structured curation, and continuous self-optimization.
+
+- **Version:** 1.0.0 | **Tags:** knowledge-base, agent-ops, gemini-md, template, self-optimizing, metacognition, project-management
+
+---
+
 ### [The Adaptive Project Architect (Self-Optimizing System)](adaptive_project_architect.md)
 A meta-prompt that establishes an agent as a self-optimizing Project Architect, capable of learning user preferences and updating its own protocol file (e.g., GEMINI.md) to evolve over time.
 

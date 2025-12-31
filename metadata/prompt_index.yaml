@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-31T08:11:59.105298'
+  last_modified: '2025-12-31T08:21:02.844725'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-31T08:11:59.109320'
+  last_modified: '2025-12-31T08:21:02.848257'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-31T08:11:59.110488'
+  last_modified: '2025-12-31T08:21:02.849093'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: adaptive-project-architect
   title: The Adaptive Project Architect (Self-Optimizing System)
@@ -139,7 +139,7 @@
   - name: project_name
     type: string
     description: The name of the project.
-  last_modified: '2025-12-31T08:11:59.112004'
+  last_modified: '2025-12-31T08:21:02.850393'
   file_path: utilities/agent_ops/adaptive_project_architect.md
 - id: git-commit-generator
   title: Git Commit Message Generator
@@ -166,7 +166,7 @@
   - name: context
     type: string
     description: Optional context about the changes (e.g., "Refactoring auth module").
-  last_modified: '2025-12-31T08:11:59.113367'
+  last_modified: '2025-12-31T08:21:02.851469'
   file_path: utilities/agent_ops/git_commit_generator.md
 - id: knowledge-base-agent-template
   title: Knowledge Base Agent Template (GEMINI.md)
@@ -193,7 +193,7 @@
     description: Provide initial high-level goals and scope for the knowledge base
       (e.g., primary purpose, target audience, key content types). The agent will
       use this to guide its Phase 1 Boot Sequence for more detailed setup.
-  last_modified: '2025-12-31T08:11:59.114486'
+  last_modified: '2025-12-31T08:21:02.852554'
   file_path: utilities/agent_ops/knowledge_base_agent_template.md
 - id: perfect-prompt-engineer
   title: Perfect Prompt Engineer (Cognitive Architect)
@@ -221,8 +221,70 @@
     type: string
     description: A detailed description of the prompt the user wants to create, including
       goal, input, output, constraints, and context.
-  last_modified: '2025-12-31T08:11:59.116228'
+  last_modified: '2025-12-31T08:21:02.853761'
   file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
+- id: tree-of-thoughts-template
+  title: Tree-of-Thoughts / Step-Back Reasoning
+  description: An advanced meta-prompt template that guides an LLM to explore multiple
+    reasoning paths or generate a broader, high-level analysis before committing to
+    a final solution, enhancing depth and accuracy for complex problems.
+  category: utilities
+  sub_category: prompt_engineering
+  tags:
+  - meta-prompt
+  - reasoning
+  - problem-solving
+  - tree-of-thoughts
+  - step-back-prompting
+  - advanced-prompting
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: problem_statement
+    type: string
+    description: The complex problem or question the LLM needs to solve.
+  - name: num_reasoning_paths
+    type: number
+    description: The number of distinct reasoning paths the LLM should explore.
+    default: 3
+  - name: step_back_question
+    type: string
+    description: An optional high-level 'step-back' question to guide initial broader
+      analysis (e.g., 'What are the fundamental principles at play here?', 'What is
+      the core challenge?').
+    optional: true
+  last_modified: '2025-12-31T08:21:02.855301'
+  file_path: utilities/prompt_engineering/tree_of_thoughts_template.md
+- id: self-ask-decomposition-template
+  title: Self-Ask Decomposition
+  description: A meta-prompt template that instructs an LLM to break down a complex
+    user request into a series of smaller, manageable sub-questions, answer each,
+    and then synthesize the results to form a comprehensive final answer.
+  category: utilities
+  sub_category: prompt_engineering
+  tags:
+  - meta-prompt
+  - decomposition
+  - problem-solving
+  - complex-tasks
+  - reasoning
+  - advanced-prompting
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: complex_request
+    type: string
+    description: The initial complex user request or problem statement.
+  - name: num_sub_questions
+    type: number
+    description: The target number of sub-questions the LLM should generate for decomposition.
+    default: 3
+  last_modified: '2025-12-31T08:21:02.856522'
+  file_path: utilities/prompt_engineering/self_ask_decomposition_template.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
   description: An AI agent designed to continuously monitor, integrate, and curate
@@ -278,8 +340,41 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-31T08:11:59.119590'
+  last_modified: '2025-12-31T08:21:02.859545'
   file_path: utilities/prompt_engineering/deep_research_agent.md
+- id: self-critique-refinement-template
+  title: Self-Critique & Refinement Loop
+  description: A meta-prompt template for instructing an LLM to critique its own generated
+    output against specific criteria and then refine it iteratively, leading to higher
+    quality and more accurate responses.
+  category: utilities
+  sub_category: prompt_engineering
+  tags:
+  - meta-prompt
+  - self-correction
+  - refinement
+  - iterative
+  - quality-assurance
+  - advanced-prompting
+  version: 1.0.0
+  status: active
+  llm_model_compatibility:
+  - any
+  parameters:
+  - name: initial_task_description
+    type: string
+    description: A detailed description of the task for the LLM to perform initially.
+  - name: critique_criteria
+    type: string
+    description: Specific criteria against which the LLM should critique its own output
+      (e.g., 'accuracy', 'completeness', 'conciseness', 'adherence to user intent').
+  - name: iterations
+    type: number
+    description: The number of times the LLM should attempt to critique and refine
+      its output (e.g., 1 for one critique pass, 2 for two passes).
+    default: 1
+  last_modified: '2025-12-31T08:21:02.861064'
+  file_path: utilities/prompt_engineering/self_critique_refinement_template.md
 - id: ml-model-inference-generator
   title: ML Model Inference Code Generator
   description: Generates optimized inference code (generate methods) for Machine Learning
@@ -308,7 +403,7 @@
   - name: specific_requirements
     type: string
     description: Specific requirements like KV-caching, beam search, or quantization.
-  last_modified: '2025-12-31T08:11:59.121627'
+  last_modified: '2025-12-31T08:21:02.862529'
   file_path: development/code_generation/ml_model_inference_generator.md
 - id: image-generation-prompt-optimizer
   title: Image Generation Prompt Optimizer
@@ -341,5 +436,5 @@
   - name: aspect_ratio
     type: string
     description: Desired aspect ratio (e.g., 16:9, 1:1).
-  last_modified: '2025-12-31T08:11:59.123670'
+  last_modified: '2025-12-31T08:21:02.864178'
   file_path: content/visual/image_generation_prompt_optimizer.md

@@ -14,3 +14,8 @@
   - Transitioned to structured cognitive architecture.
   - Added Thinking Journal `<thinking_journal>` and Recursive Self-Improvement `<recursive_self_improvement>` phases.
   - Implemented XML-delimited prompt grammar.
+- `GEMINI.md` to implement adaptive, self-correcting cognitive architecture.
+  - Introduced `METAPROTOCOL` with `<thinking_journal>` and `<recursive_self_improvement>` loops.
+  - Defined explicit `EVALUATION_CRITERIA` for self-assessment.
+  - Enhanced `Execution Loop` and `Protocol Maintenance` for better adaptiveness and context management.
+  - Added `PROACTIVE_IDEATION` section for continuous improvement.

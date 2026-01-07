@@ -1,0 +1,63 @@
+# Agent System Configuration
+
+agent:
+  name: "Prompt Library Agent"
+  version: "1.0.0"
+  mode: "safe"  # Options: safe, auto
+
+research:
+  enabled: true
+  arxiv_categories:
+    - "cs.AI"
+    - "cs.CL"
+    - "cs.LG"
+  keywords:
+    - "prompt engineering"
+    - "LLM agents"
+    - "RAG"
+    - "retrieval augmented generation"
+  check_frequency_hours: 24
+  max_results_per_category: 10
+  days_back: 7
+
+code_quality:
+  enabled: true
+  auto_lint: true
+  auto_format: true
+  lint_rules:
+    select: "E,F,I,UP,B,SIM"
+    ignore: "E501"
+    line_length: 120
+
+git_operations:
+  auto_commit: false
+  require_approval: true
+  commit_message_template: "agent: {operation} {description}"
+  default_branch: "main"
+
+directories:
+  prompt_dirs:
+    - "analysis"
+    - "content"
+    - "development"
+    - "trading"
+    - "utilities"
+  ignore_dirs:
+    - ".git"
+    - "__pycache__"
+    - "node_modules"
+    - ".venv"
+    - "venv"
+    - ".env"
+    - "current"
+
+self_improvement:
+  enabled: true
+  feedback_learning: true
+  protocol_updates: true
+  max_protocol_versions: 10
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(levelname)s - %(message)s"
+  log_file: "agent_system.log"

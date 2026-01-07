@@ -26,7 +26,7 @@
   - name: formatting_preferences
     type: string
     description: Any specific formatting preferences.
-  last_modified: '2025-12-31T09:37:51.270202'
+  last_modified: '2026-01-07T20:30:38.768667'
   file_path: analysis/data_processing/document_parser_rag_extraction.md
 - id: trading-bot-master-plan
   title: Master Project Prompt for Trading Bot Development
@@ -89,7 +89,7 @@
     details: Generate production-quality code.
   - title: Testing & Deployment
     details: Validate system and deploy safely.
-  last_modified: '2025-12-31T09:37:51.274710'
+  last_modified: '2026-01-07T20:30:38.773132'
   file_path: trading/bot_development/master_project_trading_bot.md
 - id: trading-strategy-extractor
   title: 'Quantitative Knowledge Engineer: Trading Strategy Extractor'
@@ -110,7 +110,7 @@
   - gpt-4o
   - claude-3-opus
   parameters: []
-  last_modified: '2025-12-31T09:37:51.276232'
+  last_modified: '2026-01-07T20:30:38.774605'
   file_path: trading/document_analysis/trading_strategy_extractor.md
 - id: adaptive-project-architect
   title: The Adaptive Project Architect (Self-Optimizing System)
@@ -139,7 +139,7 @@
   - name: project_name
     type: string
     description: The name of the project.
-  last_modified: '2025-12-31T09:37:51.277920'
+  last_modified: '2026-01-07T20:30:38.776152'
   file_path: utilities/agent_ops/adaptive_project_architect.md
 - id: git-commit-generator
   title: Git Commit Message Generator
@@ -166,7 +166,7 @@
   - name: context
     type: string
     description: Optional context about the changes (e.g., "Refactoring auth module").
-  last_modified: '2025-12-31T09:37:51.279602'
+  last_modified: '2026-01-07T20:30:38.777546'
   file_path: utilities/agent_ops/git_commit_generator.md
 - id: knowledge-base-agent-template
   title: Knowledge Base Agent Template (GEMINI.md)
@@ -193,7 +193,7 @@
     description: Provide initial high-level goals and scope for the knowledge base
       (e.g., primary purpose, target audience, key content types). The agent will
       use this to guide its Phase 1 Boot Sequence for more detailed setup.
-  last_modified: '2025-12-31T09:37:51.281554'
+  last_modified: '2026-01-07T20:30:38.779068'
   file_path: utilities/agent_ops/knowledge_base_agent_template.md
 - id: perfect-prompt-engineer
   title: Perfect Prompt Engineer (Cognitive Architect)
@@ -221,7 +221,7 @@
     type: string
     description: A detailed description of the prompt the user wants to create, including
       goal, input, output, constraints, and context.
-  last_modified: '2025-12-31T09:37:51.282998'
+  last_modified: '2026-01-07T20:30:38.780742'
   file_path: utilities/prompt_engineering/perfect-prompt-engineer.md
 - id: tree-of-thoughts-template
   title: Tree-of-Thoughts / Step-Back Reasoning
@@ -255,7 +255,7 @@
       analysis (e.g., 'What are the fundamental principles at play here?', 'What is
       the core challenge?').
     optional: true
-  last_modified: '2025-12-31T09:37:51.284959'
+  last_modified: '2026-01-07T20:30:38.782975'
   file_path: utilities/prompt_engineering/tree_of_thoughts_template.md
 - id: self-ask-decomposition-template
   title: Self-Ask Decomposition
@@ -283,7 +283,7 @@
     type: number
     description: The target number of sub-questions the LLM should generate for decomposition.
     default: 3
-  last_modified: '2025-12-31T09:37:51.286749'
+  last_modified: '2026-01-07T20:30:38.784878'
   file_path: utilities/prompt_engineering/self_ask_decomposition_template.md
 - id: deep-research-agent-pe
   title: Deep Research Agent for Prompt Engineering
@@ -340,7 +340,7 @@
   - name: RIGOR_LEVEL
     type: string
     description: 'Rigor level for research (high | standard; default: high).'
-  last_modified: '2025-12-31T09:37:51.290930'
+  last_modified: '2026-01-07T20:30:38.788491'
   file_path: utilities/prompt_engineering/deep_research_agent.md
 - id: self-critique-refinement-template
   title: Self-Critique & Refinement Loop
@@ -373,7 +373,7 @@
     description: The number of times the LLM should attempt to critique and refine
       its output (e.g., 1 for one critique pass, 2 for two passes).
     default: 1
-  last_modified: '2025-12-31T09:37:51.293214'
+  last_modified: '2026-01-07T20:30:38.790832'
   file_path: utilities/prompt_engineering/self_critique_refinement_template.md
 - id: refinement-continuous-optimization-agent
   title: Refinement & Continuous Optimization Agent
@@ -427,7 +427,7 @@
     description: Current team/project priorities that should influence recommendations
       (e.g., "focus on shipping features quickly", "security is paramount").
     optional: true
-  last_modified: '2025-12-31T09:37:51.295909'
+  last_modified: '2026-01-07T20:30:38.794188'
   file_path: development/agent_roles/refinement_continuous_optimization_agent.md
 - id: ci-cd-pipeline-agent
   title: CI/CD Pipeline Automation Engineer
@@ -480,7 +480,7 @@
     type: string
     description: Any other relevant information or constraints.
     optional: true
-  last_modified: '2025-12-31T09:37:51.298679'
+  last_modified: '2026-01-07T20:30:38.797215'
   file_path: development/agent_roles/ci_cd_pipeline_agent.md
 - id: requirements-analyst-agent
   title: Requirements Analyst Agent
@@ -515,7 +515,7 @@
     description: Desired format for the output (e.g., 'User Stories in Gherkin', 'Bullet
       Points of FRs/NFRs', 'Structured JSON').
     default: User Stories in Gherkin
-  last_modified: '2025-12-31T09:37:51.300605'
+  last_modified: '2026-01-07T20:30:38.799337'
   file_path: development/agent_roles/requirements_analyst_agent.md
 - id: bug-triage-agent
   title: Bug Triage Agent
@@ -566,7 +566,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.303953'
+  last_modified: '2026-01-07T20:30:38.802782'
   file_path: development/agent_roles/bug_triage_agent.md
 - id: deployment-engineer-agent
   title: Deployment Engineer / Cloud Architect
@@ -633,7 +633,7 @@
     type: string
     description: Any other relevant information or constraints.
     optional: true
-  last_modified: '2025-12-31T09:37:51.307069'
+  last_modified: '2026-01-07T20:30:38.807359'
   file_path: development/agent_roles/deployment_engineer_agent.md
 - id: project-manager-coordinator-agent
   title: Project Manager/Coordinator Agent
@@ -689,7 +689,7 @@
     - assign tasks
     - facilitate sprint planning
     - conduct retrospective summary
-  last_modified: '2025-12-31T09:37:51.310054'
+  last_modified: '2026-01-07T20:30:38.810695'
   file_path: development/agent_roles/project_manager_coordinator_agent.md
 - id: security-agent
   title: Application Security Engineer
@@ -740,7 +740,7 @@
     type: string
     description: Any other relevant security context or concerns.
     optional: true
-  last_modified: '2025-12-31T09:37:51.312473'
+  last_modified: '2026-01-07T20:30:38.813473'
   file_path: development/agent_roles/security_agent.md
 - id: code-review-agent
   title: Code Review Agent
@@ -795,7 +795,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.315866'
+  last_modified: '2026-01-07T20:30:38.816614'
   file_path: development/agent_roles/code_review_agent.md
 - id: learning-adaptation-agent
   title: Learning & Adaptation Agent (Meta-Agent)
@@ -846,7 +846,7 @@
       "optimize agent collaboration for debugging", "improve code generation accuracy",
       "reduce deployment time").
     optional: true
-  last_modified: '2025-12-31T09:37:51.318427'
+  last_modified: '2026-01-07T20:30:38.820173'
   file_path: development/agent_roles/learning_adaptation_agent.md
 - id: software-architecture-design-agent
   title: Software Architecture Design Agent
@@ -905,7 +905,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.321971'
+  last_modified: '2026-01-07T20:30:38.824305'
   file_path: development/agent_roles/software_architecture_design_agent.md
 - id: documentation-agent
   title: Technical Documentation Specialist
@@ -954,7 +954,7 @@
     type: string
     description: Any other relevant information or context.
     optional: true
-  last_modified: '2025-12-31T09:37:51.324202'
+  last_modified: '2026-01-07T20:30:38.827304'
   file_path: development/agent_roles/documentation_agent.md
 - id: metrics-analytics-agent
   title: Software Engineering Metrics & Analytics Specialist
@@ -1005,7 +1005,7 @@
     description: The desired format for the output (e.g., "summary report", "dashboard
       insights", "trend analysis", "action plan").
     default: summary report with action plan
-  last_modified: '2025-12-31T09:37:51.326832'
+  last_modified: '2026-01-07T20:30:38.830807'
   file_path: development/agent_roles/metrics_analytics_agent.md
 - id: qa-analyst-agent
   title: QA Analyst/Test Orchestrator Agent
@@ -1067,7 +1067,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.330742'
+  last_modified: '2026-01-07T20:30:38.834415'
   file_path: development/agent_roles/qa_analyst_agent.md
 - id: code-generation-agent
   title: Code Generation Agent
@@ -1127,7 +1127,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.334587'
+  last_modified: '2026-01-07T20:30:38.848327'
   file_path: development/code_generation/code_generation_agent.md
 - id: ml-model-inference-generator
   title: ML Model Inference Code Generator
@@ -1157,7 +1157,7 @@
   - name: specific_requirements
     type: string
     description: Specific requirements like KV-caching, beam search, or quantization.
-  last_modified: '2025-12-31T09:37:51.345989'
+  last_modified: '2026-01-07T20:30:38.850221'
   file_path: development/code_generation/ml_model_inference_generator.md
 - id: test-generation-agent
   title: Test Generation Agent
@@ -1210,7 +1210,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.352028'
+  last_modified: '2026-01-07T20:30:38.853181'
   file_path: development/code_generation/test_generation_agent.md
 - id: debugging-agent
   title: Debugging Agent
@@ -1270,7 +1270,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.355704'
+  last_modified: '2026-01-07T20:30:38.856813'
   file_path: development/code_generation/debugging_agent.md
 - id: code-refactoring-agent
   title: Code Refactoring Agent
@@ -1318,7 +1318,7 @@
     description: Number of self-correction/refinement iterations to perform (0 for
       no iteration, 1 for one pass).
     default: 0
-  last_modified: '2025-12-31T09:37:51.358269'
+  last_modified: '2026-01-07T20:30:38.860187'
   file_path: development/code_generation/code_refactoring_agent.md
 - id: image-generation-prompt-optimizer
   title: Image Generation Prompt Optimizer
@@ -1351,5 +1351,5 @@
   - name: aspect_ratio
     type: string
     description: Desired aspect ratio (e.g., 16:9, 1:1).
-  last_modified: '2025-12-31T09:37:51.360456'
+  last_modified: '2026-01-07T20:30:38.862175'
   file_path: content/visual/image_generation_prompt_optimizer.md
